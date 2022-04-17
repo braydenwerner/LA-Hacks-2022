@@ -10,7 +10,7 @@ import {
 import { client } from '../../../../utils/createApolloClient'
 import { ItemView, Navbar } from '../../../../components/modules'
 import { ItemProperties } from '../../../../types'
-import { ItemDescription } from '../../../../components/elements/ItemDescription/ItemDescription'
+import { CommentPage } from '../../../../components/elements/CommentPage/CommentPage'
 import { TokenContext } from '../../../../providers'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -80,9 +80,8 @@ const Printer3dItemPage: NextPage<Printer3dItemProps> = ({ uuid, printer }) => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <ItemView item={printer} properties={getProperties()} />
-      <ItemDescription itemUUID={uuid} signedIn={!!userData} />
+      <CommentPage itemUUID={uuid} signedIn={!!userData} />
     </>
   )
 }

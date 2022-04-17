@@ -5,6 +5,7 @@ import {
   GetPrinter3dInput,
   Printer3d,
 } from '../../../generated/graphql'
+import { colorPalette } from '../../../constants/constants'
 
 import { client } from '../../../utils/createApolloClient'
 import { printer3dProperties } from '../../../constants/constants'
@@ -38,7 +39,7 @@ const Printer3dPage: NextPage<Printer3dPageProps> = ({ printers, input }) => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head> 
-      <Navbar /> 
+      <Navbar title="Favor" titleColor={colorPalette.yellow} link='/favors' backButton={false} settingsButton={false} /> 
       <div>3D Printer page</div>
       <ItemList itemsData={printers} />
       <Printer3dSearch input={input} />

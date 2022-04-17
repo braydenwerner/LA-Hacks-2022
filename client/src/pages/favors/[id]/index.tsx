@@ -5,7 +5,7 @@ import { GetFavorByIdDocument, GetFavorsDocument, Favor } from '../../../generat
 import { client } from '../../../utils/createApolloClient'
 import { ItemView, Navbar } from '../../../components/modules'
 import { ItemProperties } from '../../../types'
-import { ItemComments } from '../../../components/elements/ItemComments/ItemComments'
+import { CommentPage } from '../../../components/elements/CommentPage/CommentPage'
 import { TokenContext } from '../../../providers'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -55,7 +55,7 @@ const FavorItemPage: NextPage<FavorItemProps> = ({ uuid, favor }) => {
   
     return (
       <>
-      <ItemComments itemUUID={uuid} signedIn={!!userData} /> 
+        <CommentPage favor={favor} itemUUID={uuid} signedIn={!!userData} /> 
       </>
     )
 }
