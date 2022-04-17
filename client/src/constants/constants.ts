@@ -35,10 +35,10 @@ export const favorsProperties: GetFavorInput = {
   groceryTask: false,
   laundryTask: false,
   pageSize: 0,
-  pageNumber: 0
+  pageNumber: 0,
 }
 
-export const defaultItemPageSize = 5
+export const defaultItemPageSize = 10
 export const defaultItemPageNumber = 1
 
 export const colorPalette = {
