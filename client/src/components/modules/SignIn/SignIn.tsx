@@ -123,14 +123,14 @@ export const SignIn: React.FC<SignInProps> = ({ onStart, onSuccess }) => {
           <div className={styles.loginText}>log in</div>
           <div className={styles.inputFormWrapper}>
             <div className={styles.inputheader}>email</div>
-            <input
+            <Field
               name="email"
               required={true}
               autoFocus
               className={styles.inputbox}
             />
             <div className={styles.inputheader}>password</div>
-            <input
+            <Field
               name="password"
               type="password"
               required={true}

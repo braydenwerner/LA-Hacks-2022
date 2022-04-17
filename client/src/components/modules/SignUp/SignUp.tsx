@@ -138,28 +138,31 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
           <div className={styles.loginText}>sign up</div>
           <div className={styles.inputFormWrapper}>
             <div className={styles.inputheader}>First name</div>
-            <input
+            <Field
               name="firstName"
               required={true}
               autoFocus
+              autoComplete="false"
               className={styles.inputbox}
             />
             <div className={styles.inputheader}>Last name</div>
-            <input
+            <Field
               name="lastName"
               required={true}
               autoFocus
+              autoComplete="false"
               className={styles.inputbox}
             />
             <div className={styles.inputheader}>email</div>
-            <input
+            <Field
               name="email"
               required={true}
               autoFocus
+              autoComplete="false"
               className={styles.inputbox}
             />
             <div className={styles.inputheader}>password</div>
-            <input
+            <Field
               name="password"
               type="password"
               required={true}
