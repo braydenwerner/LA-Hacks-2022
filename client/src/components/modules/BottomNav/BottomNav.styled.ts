@@ -26,3 +26,7 @@ export const PlusContainer = styled.div`
 export const ProfileContainer = styled.div`
   cursor: pointer;
 `
+
+export const SearchContainer = styled.div`
+  cursor: pointer;
+`

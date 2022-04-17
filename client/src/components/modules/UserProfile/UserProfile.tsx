@@ -5,7 +5,7 @@ import Image from 'next/image'
 import * as Styled from './UserProfile.styled'
 import { TokenContext } from '../../../providers'
 import { auth } from '../../../config/config'
-import router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 interface UserProfileProps {
   user: User
@@ -17,7 +17,9 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
   const { data } = useGetUsersQuery()
   const usersData = data && data.getUsers
 
-  const { userData } = useContext(TokenContext)
+  const router = useRouter()
+  const { isMounted, tokenAttached, userData } = useContext(TokenContext)
+  if (isMounted && !tokenAttached) router.push('/signup')
 
   return (
     <Styled.ProfileContainer>
@@ -37,20 +39,25 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
         </Styled.SelectorText>
       </Styled.Selector>
 
-      {/* {selectMode === 'favors' ? (
+      {selectMode === 'favors' ? (
         <div>favors</div>
       ) : (
         <div>
           {usersData &&
-            usersData.map(
+            usersData.splice(0, 5).map(
               (user, i) =>
                 userData &&
                 userData.uid !== user.uid && (
-                  <div key={i}>{user.first_name + ' ' + user.last_name}</div>
+                  <div
+                    key={i}
+                    onClick={() => router.push('/users/' + user.uid)}
+                  >
+                    {user.first_name + ' ' + user.last_name}
+                  </div>
                 )
             )}
         </div>
-      )} */}
+      )}
 
       <div
         onClick={async () => {

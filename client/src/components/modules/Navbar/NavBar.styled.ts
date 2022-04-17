@@ -16,6 +16,7 @@ export const NavContainer = styled.div`
   font-weight: 900;
   font-size: 40px;
   color: ${colorPalette.yellow};
+  z-index: 500;
 
   div {
     margin-top: 20px;
