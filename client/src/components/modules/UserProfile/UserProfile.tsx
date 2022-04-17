@@ -37,7 +37,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
         </Styled.SelectorText>
       </Styled.Selector>
 
-      {selectMode === 'favors' ? (
+      {/* {selectMode === 'favors' ? (
         <div>favors</div>
       ) : (
         <div>
@@ -50,7 +50,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                 )
             )}
         </div>
-      )}
+      )} */}
 
       <div
         onClick={async () => {

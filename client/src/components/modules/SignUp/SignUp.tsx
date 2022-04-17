@@ -8,7 +8,6 @@ import { TokenContext } from '../../../providers'
 import * as Styled from '../../../styles/shared.styled'
 import styles from './SignUp.module.css'
 
-
 interface FormSubmitData {
   firstName: string
   lastName: string
@@ -86,6 +85,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
         password: '',
       }}
       onSubmit={async (data, { setSubmitting, setFieldError }) => {
+        console.log('submiting form')
         setSubmitting(true)
 
         if (onStart) onStart()
@@ -133,14 +133,20 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
       }}
     >
       {({ values, isSubmitting, handleSubmit }) => (
-
         <form className={styles.authwrapper} onSubmit={handleSubmit}>
           <div className={styles.headertext}>Favor</div>
           <div className={styles.loginText}>sign up</div>
           <div className={styles.inputFormWrapper}>
-            <div className={styles.inputheader}>name</div>
+            <div className={styles.inputheader}>First name</div>
             <input
               name="firstName"
+              required={true}
+              autoFocus
+              className={styles.inputbox}
+            />
+            <div className={styles.inputheader}>Last name</div>
+            <input
+              name="lastName"
               required={true}
               autoFocus
               className={styles.inputbox}
@@ -155,14 +161,25 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
             <div className={styles.inputheader}>password</div>
             <input
               name="password"
+              type="password"
               required={true}
               autoFocus
               className={styles.inputbox}
             />
-            <button className={styles.submitButton}>get favoring!</button>
-          </div> 
-          <div className={styles.randomtext}>Already a Favorer?</div> 
-          <div><button className={styles.submitButton} style={{'backgroundColor': '#2A9D8F', 'marginTop': "5px"}} onClick={() => router.push('/login')}>Log In!</button> </div>
+            <button type="submit" className={styles.submitButton}>
+              get favoring!
+            </button>
+          </div>
+          <div className={styles.randomtext}>Already a Favorer?</div>
+          <div>
+            <button
+              className={styles.submitButton}
+              style={{ backgroundColor: '#2A9D8F', marginTop: '5px' }}
+              onClick={() => router.push('/login')}
+            >
+              Log In!
+            </button>{' '}
+          </div>
         </form>
       )}
     </Formik>

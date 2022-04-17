@@ -132,21 +132,28 @@ export const SignIn: React.FC<SignInProps> = ({ onStart, onSuccess }) => {
             <div className={styles.inputheader}>password</div>
             <input
               name="password"
+              type="password"
               required={true}
               autoFocus
               className={styles.inputbox}
             />
-            <div className={styles.forgotpassword} onClick={() => router.push('/forgot-password')}>
+            <div
+              className={styles.forgotpassword}
+              onClick={() => router.push('/forgot-password')}
+            >
               Forgot your password?
             </div>
             <button className={styles.submitButton}>get favoring!</button>
-          </div> 
-          <div className={styles.randomtext}>new to Favor?</div> 
-          <div><button className={styles.submitButton} 
-                      style={{'backgroundColor': '#2A9D8F', 'marginTop': "5px"}} 
-                      onClick={() => router.push('/signup')}>
-                sign up!
-                </button>
+          </div>
+          <div className={styles.randomtext}>new to Favor?</div>
+          <div>
+            <button
+              className={styles.submitButton}
+              style={{ backgroundColor: '#2A9D8F', marginTop: '5px' }}
+              onClick={() => router.push('/signup')}
+            >
+              sign up!
+            </button>
           </div>
         </form>
       )}
