@@ -1,23 +1,30 @@
 import {useRouter} from 'next/router'
 import { Favor } from '../../../generated/graphql'
+import * as Styled from './FavorList.styled'
 
 interface FavorsListProps {
   favorsData: Favor[]
 }
 
 export const FavorsList: React.FC<FavorsListProps> = ({ favorsData }) => {
-    console.log(favorsData)
-    const router = useRouter()
+console.log(favorsData)
+const router = useRouter()
   return (
-    <div>
+    <Styled.ListWrapper>
         {favorsData.map((favor, i) => (
-            <div key={i} onClick={() => router.push('/favors/' + favor.uuid + '')}>
-                <div> {favor.uuid} </div>
-                <div>{favor.title}</div>
-                <div>{favor.description}</div>
-                <div>{favor.price}</div>
-            </div>
+            <Styled.Card key={i} onClick={() => router.push('/favors/' + favor.uuid + '')}>
+                <Styled.Header>
+                  <Styled.Title> {favor.title} </Styled.Title>
+                  <Styled.Price> ${favor.price} </Styled.Price>
+                </Styled.Header>
+                <Styled.Separator />
+                <Styled.Description>{favor.description}</Styled.Description>
+                <Styled.Footer>
+                  <Styled.Name> {favor.client_id.first_name} {favor.client_id.last_name} </Styled.Name>
+                  <Styled.FinishBy> by {favor.finish_by ? favor.finish_by : "whenever"} </Styled.FinishBy>
+                </Styled.Footer>
+            </Styled.Card>
         ))}
-    </div>
+    </Styled.ListWrapper>
   )
 }

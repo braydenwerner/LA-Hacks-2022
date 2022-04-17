@@ -425,7 +425,7 @@ export type GetFavorsQuery = (
   { __typename?: 'Query' }
   & { getFavors?: Maybe<Array<(
     { __typename?: 'Favor' }
-    & Pick<Favor, 'id' | 'uuid' | 'title' | 'description' | 'price' | 'food_task' | 'grocery_task' | 'laundry_task' | 'image_url'>
+    & Pick<Favor, 'id' | 'uuid' | 'title' | 'description' | 'price' | 'food_task' | 'grocery_task' | 'laundry_task' | 'image_url' | 'finish_by'>
     & { client_id: (
       { __typename?: 'User' }
       & Pick<User, 'first_name' | 'last_name'>
@@ -891,6 +891,7 @@ export const GetFavorsDocument = gql`
     grocery_task
     laundry_task
     image_url
+    finish_by
   }
 }
     `;

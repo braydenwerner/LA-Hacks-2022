@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
       <Styled.NavContainer>
         <Styled.PaddingDiv />
         <Styled.LogoContainer>
-          <div onClick={() => router.push('/')}>Daily Tech Supply</div>
+          <div onClick={() => router.push('/')}>Favor</div>
         </Styled.LogoContainer>
         <Styled.SearchContainer>
           <input placeholder="Search"></input>

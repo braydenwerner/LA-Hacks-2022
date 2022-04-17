@@ -54,7 +54,9 @@ const FavorItemPage: NextPage<FavorItemProps> = ({ uuid, favor }) => {
     console.log(favor);
   
     return (
-        <div></div>
+      <>
+      <ItemComments itemUUID={uuid} signedIn={!!userData} />xb 
+      </>
     )
 }
 

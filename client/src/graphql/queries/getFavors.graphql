@@ -13,5 +13,6 @@ query getFavors($data: GetFavorInput) {
     grocery_task
     laundry_task
     image_url
+    finish_by
   }
 }

@@ -40,3 +40,11 @@ export const favorsProperties: GetFavorInput = {
 
 export const defaultItemPageSize = 5
 export const defaultItemPageNumber = 1
+
+export const colorPalette = {
+  charcoal: '#264653',
+  green: '#2A9D8F',
+  yellow: '#E9C46A',
+  orange: '#F4A261',
+  redOrange: '#E76F51',
+}
