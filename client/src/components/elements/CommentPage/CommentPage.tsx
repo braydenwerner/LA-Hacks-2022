@@ -5,13 +5,13 @@ import {
   useCreateCommentMutation,
   useGetCommentsLazyQuery,
 } from '../../../generated/graphql'
-import { Navbar } from '../../modules'
+import { BottomNav, Navbar } from '../../modules'
 import * as Styled from './CommentPage.styled'
 import { FavorCard } from '../FavorCard/FavorCard'
 import { CommentCard } from '../CommentCard/CommentCard'
 import { useRouter } from 'next/router'
 import { TokenContext } from '../../../providers'
-import Image from 'next/image'
+import { Button } from '../Button/Button'
 
 interface CommentPageProps {
   favor: Favor
@@ -52,6 +52,7 @@ export const CommentPage: React.FC<CommentPageProps> = ({
       textRef.current &&
       textRef.current.value.length < 50
     ) {
+      if(textRef.current.value.length === 0) return
       const res = await createCommentMutation({
         variables: { item_uuid: itemUUID, text: textRef.current.value },
       })
@@ -61,6 +62,7 @@ export const CommentPage: React.FC<CommentPageProps> = ({
     }
   }
 
+<<<<<<< HEAD
   const commentPlaceholder = userData
     ? `Comment as ${userData.first_name}...`
     : 'Submit a comment...'
@@ -74,6 +76,18 @@ export const CommentPage: React.FC<CommentPageProps> = ({
         backButton={true}
         settingsButton={false}
       />
+=======
+  const handleClick = () => {
+    router.push('/favors/' + itemUUID + '/offer/')
+  }
+
+  const commentPlaceholder = userData ? (`Comment as ${userData.first_name}...`) : 'Submit a comment...'
+
+  return (
+    <>
+      <Styled.Background />
+      <Navbar title={`$${favor.price}`} titleColor={colorPalette.green} link='/favors' backButton={true} settingsButton={false}/>
+>>>>>>> d8e69ace728c0dfa23feb9f6440e016b1142ae80
       <Styled.BodyWrapper>
         <Styled.Title>
           {' '}
@@ -89,13 +103,18 @@ export const CommentPage: React.FC<CommentPageProps> = ({
         <FavorCard favor={favor} bigView={false} />
         {signedIn ? (
           <Styled.CreateCommentWrapper>
+<<<<<<< HEAD
             <form onSubmit={handleSubmit}>
               <Styled.TextArea
                 ref={textRef}
                 placeholder={commentPlaceholder}
               ></Styled.TextArea>
+=======
+            <Styled.Form onSubmit={handleSubmit}>
+              <Styled.TextArea ref={textRef} placeholder={commentPlaceholder}></Styled.TextArea>
+>>>>>>> d8e69ace728c0dfa23feb9f6440e016b1142ae80
               <Styled.SubmitButton type="submit">Submit</Styled.SubmitButton>
-            </form>
+            </Styled.Form>
           </Styled.CreateCommentWrapper>
         ) : (
           "You are not signed in so you can't make a comment"
@@ -103,8 +122,15 @@ export const CommentPage: React.FC<CommentPageProps> = ({
         {commentsData &&
           commentsData.map((comment, i) => (
             <CommentCard comment={comment} key={i} />
+<<<<<<< HEAD
           ))}
+=======
+        ))}
+
+        <Button text="favor details" color={colorPalette.redOrange} callback={handleClick} />
+>>>>>>> d8e69ace728c0dfa23feb9f6440e016b1142ae80
       </Styled.BodyWrapper>
+      <BottomNav />
     </>
   )
 }

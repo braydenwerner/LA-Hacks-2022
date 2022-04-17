@@ -40,40 +40,12 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
       </Styled.Selector>
 
       {selectMode === 'favors' ? (
-        <div>favors</div>
+        <Styled.NameText>
+          {user.first_name + ' ' + user.last_name}
+        </Styled.NameText>
       ) : (
-        <div>
-          {usersData &&
-            usersData.splice(0, 5).map(
-              (user, i) =>
-                userData &&
-                userData.uid !== user.uid && (
-                  <div
-                    key={i}
-                    onClick={() => router.push('/users/' + user.uid)}
-                  >
-                    {user.first_name + ' ' + user.last_name}
-                  </div>
-                )
-            )}
-        </div>
+        <div>friends</div>
       )}
-
-      <div
-        onClick={async () => {
-          console.log('trying to sign out')
-          await auth.signOut().catch((err) => {
-            console.log(err)
-          })
-
-          if (typeof window !== 'undefined') {
-            localStorage.removeItem('token')
-            window.location.reload()
-          }
-        }}
-      >
-        Sign out?
-      </div>
     </Styled.ProfileContainer>
   )
 }

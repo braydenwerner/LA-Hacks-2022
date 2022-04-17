@@ -57,8 +57,10 @@ export const Name = styled.div`
 export const FinishBy = styled.div`
     color: ${colorPalette.charcoal};
     font-style: italic;
+    text-decoration: underline;
     font-weight: 900;
     font-size: 15px;
+    z-index: 1;
 `
 
 export const Footer = styled.div`

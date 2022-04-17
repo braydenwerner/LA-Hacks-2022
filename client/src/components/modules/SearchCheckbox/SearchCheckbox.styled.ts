@@ -5,10 +5,4 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    div {
-        :first-child {
-            width: 100px;
-        }
-    }
 `
