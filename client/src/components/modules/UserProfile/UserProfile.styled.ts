@@ -10,9 +10,10 @@ export const ProfileContainer = styled.div`
 `
 
 export const NameText = styled.div`
-  font-size: 3.5rem;
+  font-size: 30px;
   color: ${colorPalette.charcoal};
   font-weight: 700;
+  margin-top: 25px;
 `
 
 export const Selector = styled.div`
