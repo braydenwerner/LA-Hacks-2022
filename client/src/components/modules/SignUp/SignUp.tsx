@@ -1,11 +1,13 @@
 import { useContext } from 'react'
 import { Formik, Field } from 'formik'
 import { useCreateUserMutation } from '../../../generated/graphql'
-
+import { useRouter } from 'next/router'
 import { auth } from '../../../config/config'
 import { CustomTextField } from '../../elements/index'
 import { TokenContext } from '../../../providers'
 import * as Styled from '../../../styles/shared.styled'
+import styles from './SignUp.module.css'
+
 
 interface FormSubmitData {
   firstName: string
@@ -26,6 +28,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
 
   const { setTokenAttached } = useContext(TokenContext)
 
+  const router = useRouter()
   const createNewUser = async (
     data: FormSubmitData
   ): Promise<ErrorResponse | null> => {
@@ -130,6 +133,42 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
       }}
     >
       {({ values, isSubmitting, handleSubmit }) => (
+
+        <form className={styles.authwrapper} onSubmit={handleSubmit}>
+          <div className={styles.headertext}>Favor</div>
+          <div className={styles.loginText}>sign up</div>
+          <div className={styles.inputFormWrapper}>
+            <div className={styles.inputheader}>name</div>
+            <input
+              name="firstName"
+              required={true}
+              autoFocus
+              className={styles.inputbox}
+            />
+            <div className={styles.inputheader}>email</div>
+            <input
+              name="email"
+              required={true}
+              autoFocus
+              className={styles.inputbox}
+            />
+            <div className={styles.inputheader}>password</div>
+            <input
+              name="password"
+              required={true}
+              autoFocus
+              className={styles.inputbox}
+            />
+            <button className={styles.submitButton}>get favoring!</button>
+          </div> 
+          <div className={styles.randomtext}>Already a Favorer?</div> 
+          <div><button className={styles.submitButton} style={{'backgroundColor': '#2A9D8F', 'marginTop': "5px"}} onClick={() => router.push('/login')}>Log In!</button> </div>
+        </form>
+      )}
+    </Formik>
+  )
+}
+/*
         <Styled.LoginForm onSubmit={handleSubmit}>
           <Field
             name="email"
@@ -169,7 +208,4 @@ export const SignUp: React.FC<SignUpProps> = ({ onStart, onSuccess }) => {
             Sign In
           </Styled.LoginSubmit>
         </Styled.LoginForm>
-      )}
-    </Formik>
-  )
-}
+*/

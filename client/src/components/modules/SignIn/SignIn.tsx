@@ -11,6 +11,7 @@ import { CustomTextField } from '../../elements'
 import { TokenContext } from '../../../providers'
 import { ForgotPasswordText } from './SignIn.styled'
 import * as Styled from '../../../styles/shared.styled'
+import styles from './SignIn.module.css'
 
 interface FormSubmitData {
   email: string
@@ -117,31 +118,37 @@ export const SignIn: React.FC<SignInProps> = ({ onStart, onSuccess }) => {
       }}
     >
       {({ values, isSubmitting, handleSubmit }) => (
-        <Styled.LoginForm onSubmit={handleSubmit}>
-          <Field
-            name="email"
-            placeholder="Email"
-            component={CustomTextField}
-            required={true}
-            autoFocus
-          />
-          <Field
-            name="password"
-            placeholder="Password"
-            type="password"
-            component={CustomTextField}
-            required={true}
-          />
-          <ForgotPasswordText onClick={() => router.push('/forgot-password')}>
-            Forgot your password?
-          </ForgotPasswordText>
-          <Styled.LoginSubmit
-            type="submit"
-            disabled={isSubmitting || !values.email || !values.password}
-          >
-            Log In
-          </Styled.LoginSubmit>
-        </Styled.LoginForm>
+        <form className={styles.authwrapper} onSubmit={handleSubmit}>
+          <div className={styles.headertext}>Favor</div>
+          <div className={styles.loginText}>log in</div>
+          <div className={styles.inputFormWrapper}>
+            <div className={styles.inputheader}>email</div>
+            <input
+              name="email"
+              required={true}
+              autoFocus
+              className={styles.inputbox}
+            />
+            <div className={styles.inputheader}>password</div>
+            <input
+              name="password"
+              required={true}
+              autoFocus
+              className={styles.inputbox}
+            />
+            <div className={styles.forgotpassword} onClick={() => router.push('/forgot-password')}>
+              Forgot your password?
+            </div>
+            <button className={styles.submitButton}>get favoring!</button>
+          </div> 
+          <div className={styles.randomtext}>new to Favor?</div> 
+          <div><button className={styles.submitButton} 
+                      style={{'backgroundColor': '#2A9D8F', 'marginTop': "5px"}} 
+                      onClick={() => router.push('/signup')}>
+                sign up!
+                </button>
+          </div>
+        </form>
       )}
     </Formik>
   )
