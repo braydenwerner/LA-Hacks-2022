@@ -35,11 +35,17 @@ const Printer3dPage: NextPage<Printer3dPageProps> = ({ printers, input }) => {
   return (
     <>
       <Head>
-        <title>3D Printers - DailyTechSupply</title>
+        <title>3D Printers</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
-      </Head> 
-      <Navbar title="Favor" titleColor={colorPalette.yellow} link='/favors' backButton={false} settingsButton={false} /> 
+      </Head>
+      <Navbar
+        title="Favor"
+        titleColor={colorPalette.yellow}
+        link="/favors"
+        backButton={false}
+        settingsButton={false}
+      />
       <div>3D Printer page</div>
       <ItemList itemsData={printers} />
       <Printer3dSearch input={input} />

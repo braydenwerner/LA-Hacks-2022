@@ -8,7 +8,7 @@ const ProductsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Products - DailyTechSupply</title>
+        <title>Products </title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -7,11 +7,9 @@ const HeadphonesPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Headphones - DailyTechSupply</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <div>Headphones Page</div>
     </>
   )
