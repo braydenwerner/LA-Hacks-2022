@@ -14,8 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <Navbar />
-        <SplashPage>
-        </SplashPage>
+        <SplashPage/>
       </main>
     </div>
   )
