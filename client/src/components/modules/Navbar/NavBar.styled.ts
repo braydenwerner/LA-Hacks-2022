@@ -22,7 +22,7 @@ export const NavContainer = styled.div`
 `
 
 export const SpaceDiv = styled.div`
-  height: 130px;
+  height: 110px;
 `
 
 interface SettingWrapperInterface {
