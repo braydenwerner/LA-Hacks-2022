@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 896px;
+    font-size: 80px;
+} 
+
+.splashbutton {
+    position: absolute;
+    height: 100px;
+    width: 270px;
+    cursor: pointer;
+    opacity: 0;
+}

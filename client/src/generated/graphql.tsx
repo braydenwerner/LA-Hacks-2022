@@ -14,7 +14,7 @@ export type Scalars = {
   Float: number;
   /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
   DateTime: any;
-};
+}; 
 
 export type Comment = {
   __typename?: 'Comment';
