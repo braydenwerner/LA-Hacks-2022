@@ -17,7 +17,7 @@ export const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 568px;
+  min-width: 0px;
 `
 
 export const SignInHeader = styled.div`
