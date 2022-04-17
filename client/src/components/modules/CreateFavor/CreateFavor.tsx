@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import { useRef } from 'react'
 import { useCreateFavorMutation } from '../../../generated/graphql'
+import { colorPalette } from '../../../constants/constants'
 import { useRouter } from 'next/router'
 import { IoArrowBack } from 'react-icons/io5'
 import * as Styled from './CreateFavor.styled'
+import { Navbar } from '../../modules'
+import styles from './CreateFavor.module.css'
 
 export const CreateFavor: React.FC = () => {
   const titleRef = useRef<any>(null)
@@ -60,31 +63,40 @@ export const CreateFavor: React.FC = () => {
 
   return (
     <>
-      <Styled.NavContainer>
-        <Styled.BackArrowContainer onClick={() => router.push('/favors')}>
-          <IoArrowBack size={34} color={'white'} />
-        </Styled.BackArrowContainer>
-      </Styled.NavContainer>
-      <div style={{ height: '120px' }}></div>
+      <Navbar title={'New Favor'} titleColor={colorPalette.green} link='/favors' backButton={true} settingsButton={false}/>
       <div>
-        <form onSubmit={handleSubmit}>
-          <div>New Favor?</div>
-          <div>What's your favor?</div>
-          <input ref={titleRef}></input>
-          <div>Any extra details?</div>
-          <textarea ref={descriptionRef}></textarea>
-          <div>What\'s it worth to you?</div>
-          <input ref={priceRef}></input>
-          <div>Deadline?</div>
-          <input type="date" ref={deadlineRef}></input>
-          <button type="submit">ask favor</button>
-          <div>What tags?</div>
-          <div>Food task?</div>
-          <input type="checkbox" ref={foodRef} />
-          <div>Grocery task</div>
-          <input type="checkbox" ref={groceryRef} />
-          <div>Laundry Task?</div>
-          <input type="checkbox" ref={laundryRef} />
+        <form className={styles.formwrapper} onSubmit={handleSubmit}>
+          <div className={styles.headertext}>What's your favor?</div>
+          <input className={styles.inputboxtitle} ref={titleRef}></input>
+          <div className={styles.headertext}>Any extra details?</div>
+          <textarea className={styles.inputboxdesc}ref={descriptionRef}></textarea>
+          <div className={styles.headertext}>What's it worth to you? $$$</div>
+          <input className={styles.inputboxprice}ref={priceRef}></input>
+          <div className={styles.timewrapper}>
+            <div>
+              <div className={styles.headertext}>Deadline?</div>
+              <input className={styles.inputboxdate}type="date" ref={deadlineRef}></input>
+            </div>
+            <div>
+              <div className={styles.headertext}>By When?</div>
+              <input className={styles.inputboxtime}></input>
+            </div>
+          </div>
+
+          <div className={styles.headertext}>Any tags?</div>
+          <div className={styles.tags}>
+            <div className={styles.tagTitle}>Food</div>
+            <input type="checkbox" ref={foodRef} />
+          </div>
+          <div className={styles.tags}>
+            <div className={styles.tagTitle}>Grocery</div>
+            <input type="checkbox" ref={groceryRef} />
+          </div>
+          <div className={styles.tags} style={{'marginBottom': '10px'}}>
+            <div className={styles.tagTitle}>Laundry</div>
+            <input type="checkbox" ref={laundryRef} />
+          </div>
+          <button className={styles.submit}type="submit">ask favor</button>
         </form>
       </div>
     </>
