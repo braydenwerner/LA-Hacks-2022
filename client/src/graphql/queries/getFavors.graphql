@@ -1,0 +1,16 @@
+query getFavors($data: GetFavorInput) {
+  getFavors(input: $data) {
+    id
+    client_id {
+      first_name
+      last_name
+    }
+    title
+    description
+    price
+    food_task
+    grocery_task
+    laundry_task
+    image_url
+  }
+}

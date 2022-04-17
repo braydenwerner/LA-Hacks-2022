@@ -1,0 +1,21 @@
+query getFavorById($uuid:String!){
+  getFavorByUUID(uuid:$uuid){
+    id
+    client_id {
+      first_name
+      last_name
+      email
+      rating
+    }
+    title
+    description
+    price
+    status
+    finish_by
+    image_url
+    public
+    food_task
+    grocery_task
+    laundry_task
+  }
+}

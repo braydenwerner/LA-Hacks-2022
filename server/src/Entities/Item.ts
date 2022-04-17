@@ -20,27 +20,7 @@ export class Item extends BaseEntity {
   @Column({ type: 'float' })
   price: number
 
-  @Field(() => Float)
-  @Column({ nullable: true, type: 'float' })
-  rating: number
-
   @Field({ nullable: true })
   @Column({ nullable: true })
-  manufacturer: string
-
-  @Field()
-  @Column()
-  sold_by: string
-
-  @Field()
-  @Column()
-  url: string
-
-  @Field()
-  @Column()
   image_url: string
-
-  @Field({ defaultValue: false })
-  @Column({ default: false })
-  is_affiliate: boolean
 }

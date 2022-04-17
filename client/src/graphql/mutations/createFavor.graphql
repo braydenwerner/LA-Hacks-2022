@@ -1,0 +1,3 @@
+mutation createFavor($input: CreateFavorInput!) {
+  createFavor(input: $input)
+}

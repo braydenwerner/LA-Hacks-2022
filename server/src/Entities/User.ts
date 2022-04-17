@@ -31,6 +31,14 @@ export class User extends BaseEntity {
   @Column()
   email: string
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  rating: number
+
+  @Field({ defaultValue: 0, nullable: true })
+  @Column({ default: 0, nullable: true })
+  completed_tasks: number
+
   @Field(() => String, { nullable: true })
   @CreateDateColumn()
   last_logged_in: Date
