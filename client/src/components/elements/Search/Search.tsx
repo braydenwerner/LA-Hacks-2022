@@ -6,6 +6,7 @@ import { auth } from '../../../config/config'
 import { useRouter } from 'next/router'
 import { BottomNav, Navbar } from '../../modules'
 import * as Styled from './Search.styled'
+import { colorPalette } from '../../../constants/constants'
 
 export const Search: React.FC = () => {
   const { data } = useGetUsersQuery()
@@ -15,7 +16,14 @@ export const Search: React.FC = () => {
 
   return (
     <>
-      <Navbar />
+      <Styled.Background />
+      <Navbar
+        title={'Search'}
+        titleColor={colorPalette.charcoal}
+        backButton={false}
+        settingsButton={false}
+        link={'/favors/'}
+      />
       <div style={{ height: '50px' }}></div>
       <Styled.SearchContainer>
         {usersData &&

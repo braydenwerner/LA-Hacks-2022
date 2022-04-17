@@ -7,7 +7,8 @@ import {
 } from '../../../generated/graphql'
 
 import { client } from '../../../utils/createApolloClient'
-import { Navbar, UserProfile } from '../../../components/modules'
+import { BottomNav, Navbar, UserProfile } from '../../../components/modules'
+import { colorPalette } from '../../../constants/constants'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await client.query({
@@ -49,13 +50,20 @@ interface UserProfileProps {
 const UserProfilePage: NextPage<UserProfileProps> = ({ user }) => {
   return (
     <>
+      <Navbar
+        backButton={false}
+        link={''}
+        settingsButton={false}
+        title={'Profile'}
+        titleColor={colorPalette.charcoal}
+      />
       <Head>
         <title>{user.first_name}'s Profile</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <UserProfile user={user} />
+      <BottomNav />
     </>
   )
 }

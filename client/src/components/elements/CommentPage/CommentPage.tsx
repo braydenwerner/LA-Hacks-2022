@@ -7,9 +7,9 @@ import {
 } from '../../../generated/graphql'
 import { Navbar } from '../../modules'
 import * as Styled from './CommentPage.styled'
-import Image from 'next/Image'
 import { FavorCard } from '../FavorCard/FavorCard'
 import { CommentCard } from '../CommentCard/CommentCard'
+import Image from 'next/image'
 
 interface CommentPageProps {
   favor: Favor
@@ -55,21 +55,30 @@ export const CommentPage: React.FC<CommentPageProps> = ({
 
   return (
     <>
-      <Navbar title={`$${favor.price}`} titleColor={colorPalette.green} link='/products' backButton={true} settingsButton={false}/>
+      <Navbar
+        title={`$${favor.price}`}
+        titleColor={colorPalette.green}
+        link="/products"
+        backButton={true}
+        settingsButton={false}
+      />
       <Styled.BodyWrapper>
-        <Styled.Title> <span style={{fontWeight: 900}}> {favor.client_id.first_name} {favor.client_id.last_name} </span> has a favor! </Styled.Title>
+        <Styled.Title>
+          {' '}
+          <span style={{ fontWeight: 900 }}>
+            {' '}
+            {favor.client_id.first_name} {favor.client_id.last_name}{' '}
+          </span>{' '}
+          has a favor!{' '}
+        </Styled.Title>
         <Styled.ImgWrapper>
-          <Image 
-            src="/profile_img.png"
-            width={50}
-            height={50}
-          />
+          <Image src="/profile_img.png" width={50} height={50} />
         </Styled.ImgWrapper>
         <FavorCard favor={favor} bigView={false} />
         {commentsData &&
           commentsData.map((comment, i) => (
             <CommentCard comment={comment} key={i} />
-        ))}
+          ))}
         <div>
           {signedIn ? (
             <div>
