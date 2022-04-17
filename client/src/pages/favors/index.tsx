@@ -15,6 +15,7 @@ import {
   FavorSearch,
   BottomNav,
 } from '../../components/modules'
+import { colorPalette } from '../../constants/constants'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = validateQueryParams(context.query, favorsProperties)
@@ -39,7 +40,7 @@ const FavorsPage: NextPage<FavorsListPageProps> = ({ favors, data }) => {
   console.log(data)
   return (
     <>
-      <Navbar />
+      <Navbar title="Favor" titleColor={colorPalette.yellow} link='/favors' backButton={false} settingsButton={false} /> 
       <FavorsList favorsData={favors} />
       <FavorSearch input={data} />
       <BottomNav />
