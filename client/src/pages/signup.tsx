@@ -21,7 +21,7 @@ const SignUpPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>SignUp - DailyTechSupply</title>
+        <title>SignUp - Favor</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -38,7 +38,7 @@ export const Description = styled.div`
     -webkit-line-clamp: 4; /* number of lines to show */
            line-clamp: 4 
    -webkit-box-orient: vertical;
-   overflow: hidden;
+   overflow-wrap: break-word;
    text-overflow: ellipsis;
 `
 export const ImgWrapper = styled.div`

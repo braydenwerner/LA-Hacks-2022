@@ -21,7 +21,7 @@ const LoginPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Login - DailyTechSupply</title>
+        <title>Login - Favor</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

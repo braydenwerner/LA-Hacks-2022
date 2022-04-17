@@ -50,9 +50,9 @@ export const CommentPage: React.FC<CommentPageProps> = ({
     if (
       itemUUID &&
       textRef &&
-      textRef.current &&
-      textRef.current.value.length < 50
+      textRef.current
     ) {
+      console.log(textRef.current.value)
       if(textRef.current.value.length === 0) return
       const res = await createCommentMutation({
         variables: { item_uuid: itemUUID, text: textRef.current.value },
