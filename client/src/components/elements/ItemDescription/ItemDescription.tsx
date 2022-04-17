@@ -4,12 +4,12 @@ import {
   useGetCommentsLazyQuery,
 } from '../../../generated/graphql'
 
-interface ItemCommentsProps {
+interface ItemDescriptionProps {
   itemUUID: string
   signedIn: boolean
 }
 
-export const ItemComments: React.FC<ItemCommentsProps> = ({
+export const ItemDescription: React.FC<ItemDescriptionProps> = ({
   itemUUID,
   signedIn,
 }) => {
