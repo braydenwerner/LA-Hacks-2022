@@ -8,10 +8,9 @@ import { ApolloServer } from 'apollo-server-express'
 import { buildSchema } from 'type-graphql'
 import { createConnection } from 'typeorm'
 
-import { User, Item, Printer3d, Comment, Favor } from './Entities'
+import { User, Item, Comment, Favor } from './Entities'
 import {
   UserResolver,
-  Printer3dResolver,
   CommentResolver,
   FavorResolver,
 } from './Resolvers'
@@ -22,7 +21,7 @@ const main = async () => {
     url: process.env.DATABASE_URL,
     logging: true,
     synchronize: true,
-    entities: [User, Item, Printer3d, Comment, Favor],
+    entities: [User, Item, Comment, Favor],
     migrations: [path.join(__dirname, './migrations/*')],
     ssl: {
       rejectUnauthorized: false,
@@ -39,7 +38,6 @@ const main = async () => {
     schema: await buildSchema({
       resolvers: [
         UserResolver,
-        Printer3dResolver,
         CommentResolver,
         FavorResolver,
       ],

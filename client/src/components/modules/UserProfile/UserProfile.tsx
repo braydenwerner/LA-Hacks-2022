@@ -5,6 +5,7 @@ import Image from 'next/image'
 import * as Styled from './UserProfile.styled'
 import { colorPalette } from '../../../constants/constants'
 import { Background } from '../../elements/Background.styled'
+import { SpringModal } from '../../elements'
 
 interface UserProfileProps {
   user: User
