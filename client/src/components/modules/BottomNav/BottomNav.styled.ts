@@ -13,6 +13,7 @@ export const NavContainer = styled.div`
   padding: 0;
   height: 60px;
   background-color: #264653;
+  z-index: 999;
 `
 
 export const HomeIconContainer = styled.div`

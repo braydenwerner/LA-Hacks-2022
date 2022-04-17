@@ -54,7 +54,6 @@ const UserProfilePage: NextPage<UserProfileProps> = ({ user }) => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <UserProfile user={user} />
     </>
   )

@@ -4,6 +4,11 @@ body {
   margin: 0;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
+  height: 100%;
+}
+
+#__next{
+  height: 100%;
 }
 
 a {

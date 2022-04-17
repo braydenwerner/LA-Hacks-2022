@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router'
-import { Favor } from '../../../generated/graphql'
+import { Favor, useGetCommentsLazyQuery } from '../../../generated/graphql'
 import { FavorCard } from '../../elements/FavorCard/FavorCard'
 import * as Styled from './FavorList.styled'
 
@@ -8,6 +8,7 @@ interface FavorsListProps {
 }
 
 export const FavorsList: React.FC<FavorsListProps> = ({ favorsData }) => {
+
 console.log(favorsData)
 const router = useRouter()
 

@@ -19,6 +19,7 @@ export const NavContainer = styled.div`
   font-size: 40px;
   color: ${colorPalette.yellow};
   justify-content: space-between;
+  z-index: 999;
 `
 
 export const SpaceDiv = styled.div`

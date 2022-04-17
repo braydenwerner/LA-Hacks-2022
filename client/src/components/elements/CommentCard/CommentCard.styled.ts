@@ -17,7 +17,8 @@ export const Card = styled.div`
 
 export const Header = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
 `
 
 export const Title = styled.span`
@@ -25,18 +26,22 @@ export const Title = styled.span`
     font-weight: 900;
     font-size: 18px;
     line-height: 23px;
-    margin-top: 6px;
+    margin-left: 10px;
 `
 
 export const Description = styled.div`
     color: ${colorPalette.charcoal};
     font-weight: 700;
     font-size: 14px;
-    margin-top: 3px;
+    margin-top: 12px;
     display: -webkit-box;
     -webkit-line-clamp: 4; /* number of lines to show */
            line-clamp: 4 
    -webkit-box-orient: vertical;
    overflow: hidden;
    text-overflow: ellipsis;
+`
+export const ImgWrapper = styled.div`
+    max-height: 22px;
+    z-index: 1;
 `

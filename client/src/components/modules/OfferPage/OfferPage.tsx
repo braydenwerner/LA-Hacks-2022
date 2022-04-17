@@ -5,22 +5,24 @@ import {
   useCreateCommentMutation,
   useGetCommentsLazyQuery,
 } from '../../../generated/graphql'
-import { BottomNav, Navbar } from '../../modules'
-import * as Styled from './CommentPage.styled'
+import { Navbar } from '../../modules'
+import * as Styled from './OfferPage.styled'
 import Image from 'next/Image'
-import { FavorCard } from '../FavorCard/FavorCard'
-import { CommentCard } from '../CommentCard/CommentCard'
 import { useRouter } from 'next/router'
 import { TokenContext } from '../../../providers'
-import { Button } from '../Button/Button'
+import { Button } from '../../elements/Button/Button'
+import { FavorCard } from '../../elements/FavorCard/FavorCard'
+import { CommentCard } from '../../elements/CommentCard/CommentCard'
+import { BottomNav } from '../BottomNav/BottomNav'
 
-interface CommentPageProps {
+
+interface OfferPageProps {
   favor: Favor
   itemUUID: string
   signedIn: boolean
 }
 
-export const CommentPage: React.FC<CommentPageProps> = ({
+export const OfferPage: React.FC<OfferPageProps> = ({
   favor,
   itemUUID,
   signedIn,
@@ -64,17 +66,15 @@ export const CommentPage: React.FC<CommentPageProps> = ({
   }
 
   const handleClick = () => {
-    router.push('/favors/' + itemUUID + '/offer/')
+    // TODO: PUSH status update
   }
-
-  const commentPlaceholder = userData ? (`Comment as ${userData.first_name}...`) : 'Submit a comment...'
 
   return (
     <>
       <Styled.Background />
-      <Navbar title={`$${favor.price}`} titleColor={colorPalette.green} link='/favors' backButton={true} settingsButton={false}/>
+      <Navbar title={`$${favor.price}`} titleColor={colorPalette.green} link={`/favors/${itemUUID}`} backButton={true} settingsButton={false}/>
       <Styled.BodyWrapper>
-        <Styled.Title> <span style={{fontWeight: 900}}> {favor.client_id.first_name} {favor.client_id.last_name} </span> has a favor! </Styled.Title>
+        <Styled.Text> <span style={{fontWeight: 900}}> {favor.client_id.first_name} {favor.client_id.last_name} </span> has a favor! </Styled.Text>
         <Styled.ImgWrapper>
           <Image 
             src="/profile_img.png"
@@ -82,23 +82,18 @@ export const CommentPage: React.FC<CommentPageProps> = ({
             height={50}
           />
         </Styled.ImgWrapper>
-        <FavorCard favor={favor} bigView={false} />
-        {signedIn ? (
-          <Styled.CreateCommentWrapper>
-            <Styled.Form onSubmit={handleSubmit}>
-              <Styled.TextArea ref={textRef} placeholder={commentPlaceholder}></Styled.TextArea>
-              <Styled.SubmitButton type="submit">Submit</Styled.SubmitButton>
-            </Styled.Form>
-          </Styled.CreateCommentWrapper>
-        ) : (
-          "You are not signed in so you can't make a comment"
-        )}
-        {commentsData &&
-          commentsData.map((comment, i) => (
-            <CommentCard comment={comment} key={i} />
-        ))}
-
-        <Button text="favor details" color={colorPalette.redOrange} callback={handleClick} />
+        <Styled.Card>
+            <Styled.Header>
+            <Styled.Title> {favor.title} </Styled.Title>
+            </Styled.Header>
+            <Styled.Separator />
+            <Styled.Description>{favor.description}</Styled.Description>
+            <Styled.Footer>
+                <Styled.FinishBy> Comments({commentsData ? commentsData.length : '0'}) </Styled.FinishBy>
+            </Styled.Footer>
+        </Styled.Card>
+        <Styled.Text> Complete by <b>{favor.finish_by ? favor.finish_by : "whenever"}</b> </Styled.Text>
+        <Button text="pick up favor" color={colorPalette.green} callback={handleClick} />
       </Styled.BodyWrapper>
       <BottomNav />
     </>

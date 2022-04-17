@@ -9,6 +9,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm'
 import { User } from '.'
+import { Favor } from './Favor'
 
 @ObjectType()
 @Entity()
@@ -21,6 +22,11 @@ export class Comment extends BaseEntity {
   @ManyToOne(() => User, (user) => user.id)
   @JoinColumn({ name: 'user_id' })
   user_id!: User
+
+  @Field(() => Favor)
+  @ManyToOne(() => Favor, (favor) => favor.id)
+  @JoinColumn({ name: 'favor_id' })
+  favor_id!: Favor
 
   @Field()
   @Column()

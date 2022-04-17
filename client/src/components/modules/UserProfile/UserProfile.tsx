@@ -31,7 +31,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
         </Styled.SelectorText>
       </Styled.Selector>
 
-      {selectMode === 'favors' ? <div>favors</div> : <div>friends</div>}
+      {selectMode === 'favors' ? 
+      (
+        <Styled.NameText>
+          {user.first_name + ' ' + user.last_name}
+        </Styled.NameText>
+      ) : 
+      <div>friends</div>}
     </Styled.ProfileContainer>
   )
 }
