@@ -3,7 +3,7 @@ import { ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 import { Printer3d } from '../../../generated/graphql'
 
 interface ItemPreviewProps {
-  item: Printer3d
+  item: Printer3d 
 }
 
 export const ItemPreview: React.FC<ItemPreviewProps> = ({ item }) => {

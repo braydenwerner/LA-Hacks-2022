@@ -5,6 +5,7 @@ query getFavors($data: GetFavorInput) {
       first_name
       last_name
     }
+    uuid
     title
     description
     price

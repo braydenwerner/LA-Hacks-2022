@@ -29,12 +29,12 @@ export const SearchRange: React.FC<SearchProps> = ({
       delete router.query[fieldNames[0]]
       delete router.query[fieldNames[1]]
       router.push({
-        pathname: '/products/3d-printers',
+        pathname: '/favors',
         query: { ...router.query },
       })
     } else {
       router.push({
-        pathname: '/products/3d-printers',
+        pathname: '/favors',
         query: {
           ...router.query,
           [fieldNames[0]]: values[0].toString(),

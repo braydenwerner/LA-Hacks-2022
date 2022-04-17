@@ -19,12 +19,12 @@ export const SearchCheckbox: React.FC<SearchCheckboxProps> = ({
     if (value === defaultValue) {
       delete router.query[fieldName]
       router.push({
-        pathname: '/products/3d-printers',
+        pathname: '/favors',
         query: { ...router.query },
       })
     } else {
       router.push({
-        pathname: '/products/3d-printers',
+        pathname: '/favors',
         query: {
           ...router.query,
           [fieldName]: value,

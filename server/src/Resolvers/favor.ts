@@ -14,12 +14,15 @@ export class FavorResolver {
   getFavorByUUID(@Arg('uuid') uuid: string) {
     return Favor.findOne({
       where: { uuid },
+      relations: ['client_id']
     })
   }
 
   @Query(() => [Favor], { nullable: true })
   async getFavors(@Arg('input', { nullable: true }) q: GetFavorInput) {
     //  if no input filters, just return everything
+    console.log('reached')
+    console.log(q)
     if (!q) return Favor.find({ relations: ['client_id'] })
 
     const query = await createQueryBuilder('Favor')

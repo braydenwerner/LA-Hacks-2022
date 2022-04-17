@@ -1,4 +1,4 @@
-import { GetPrinter3dInput } from '../generated/graphql'
+import { GetPrinter3dInput, GetFavorInput } from '../generated/graphql'
 
 export const printer3dProperties: GetPrinter3dInput = {
   minPrice: 0,
@@ -24,6 +24,18 @@ export const printer3dProperties: GetPrinter3dInput = {
   compatibleMaterial: '',
   pageSize: 0,
   pageNumber: 0,
+}
+
+export const favorsProperties: GetFavorInput = {
+  minPrice: 0,
+  maxPrice: 0,
+  status: '',
+  public: false,
+  foodTask: false,
+  groceryTask: false,
+  laundryTask: false,
+  pageSize: 0,
+  pageNumber: 0
 }
 
 export const defaultItemPageSize = 5
