@@ -19,12 +19,14 @@ export const Search: React.FC = () => {
       <Styled.Background />
       <Navbar
         title={'Search'}
-        titleColor={colorPalette.charcoal}
+        titleColor={colorPalette.redOrange}
         backButton={false}
         settingsButton={false}
-        link={'/favors/'}
+        link={''}
+        hasLink={false}
       />
       <div style={{ height: '50px' }}></div>
+      <Styled.SearchInput placeholder={'Search users'}></Styled.SearchInput>
       <Styled.SearchContainer>
         {usersData &&
           usersData.map((user, i) => (
@@ -32,7 +34,10 @@ export const Search: React.FC = () => {
               key={i}
               onClick={() => router.push('/users/' + user.uid)}
             >
-              {user.first_name + ' ' + user.last_name}
+              <Styled.UserText>
+                {' '}
+                {user.first_name + ' ' + user.last_name}
+              </Styled.UserText>
             </Styled.User>
           ))}
       </Styled.SearchContainer>

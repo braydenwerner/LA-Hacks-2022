@@ -11,6 +11,7 @@ import { SpringModal } from '../../elements'
 interface NavbarProps {
   title: string
   titleColor: string
+  hasLink?: boolean
   link: string
   backButton: boolean
   settingsButton: boolean
@@ -20,6 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   title,
   titleColor,
   link,
+  hasLink,
   backButton,
   settingsButton,
 }) => {
@@ -38,8 +40,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             height={40}
           />
         </Styled.ImgWrapper>
-        {backButton ? (
-          <div style={{ marginTop: '40px', minWidth: '60px' }}> {title} </div>
+        {backButton || !hasLink ? (
+          <div
+            style={{ marginTop: '40px', minWidth: '60px', color: titleColor }}
+          >
+            {' '}
+            {title}{' '}
+          </div>
         ) : (
           <div
             style={{ marginTop: '40px', minWidth: '60px' }}

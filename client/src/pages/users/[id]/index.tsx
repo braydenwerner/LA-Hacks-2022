@@ -53,9 +53,10 @@ const UserProfilePage: NextPage<UserProfileProps> = ({ user }) => {
       <Navbar
         backButton={false}
         link={''}
+        hasLink={false}
         settingsButton={false}
         title={'Profile'}
-        titleColor={colorPalette.charcoal}
+        titleColor={colorPalette.green}
       />
       <Head>
         <title>{user.first_name}'s Profile</title>

@@ -13,6 +13,7 @@ export const NavContainer = styled.div`
   left: 0px;
   padding: 0 20px;
   background-color: ${colorPalette.charcoal};
+  z-index: 1;
   border-bottom: 1px solid rgb(0 0 0 / 8%);
   font-family: 'Mulish';
   font-weight: 900;
