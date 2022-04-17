@@ -5,6 +5,8 @@ export const BodyWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    background: ${colorPalette.green}
 `
 
 export const Title = styled.div`

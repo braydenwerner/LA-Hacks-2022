@@ -7,7 +7,7 @@ export const SplashPage: React.FC = () => {
     return (
         <div className={styles.wrapper}>
             <Image src='/splash.png' width={414} height={896}/>
-            <button className={styles.splashbutton} onClick={() => router.push('/signup')}></button>
+            <button className={styles.splashbutton} onClick={() => router.push('/favors')}></button>
         </div>
     )
 }
