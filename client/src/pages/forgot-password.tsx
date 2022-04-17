@@ -17,7 +17,7 @@ const ForgotPasswordPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Forgot Password - DailyTechSupply</title>
+        <title>Forgot Password - Favor</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

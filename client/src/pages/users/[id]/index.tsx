@@ -5,6 +5,7 @@ import {
   GetUserIdsDocument,
   User,
 } from '../../../generated/graphql'
+import { colorPalette } from '../../../constants/constants'
 
 import { client } from '../../../utils/createApolloClient'
 import { Navbar, UserProfile } from '../../../components/modules'
@@ -54,6 +55,7 @@ const UserProfilePage: NextPage<UserProfileProps> = ({ user }) => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar title="favor" titleColor={colorPalette.redOrange} link='' hasLink={false} backButton={false} settingsButton={false} />
       <UserProfile user={user} />
     </>
   )

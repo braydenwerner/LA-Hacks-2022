@@ -52,11 +52,6 @@ export const TextArea = styled.textarea`
         border: none;
         outline: none;
     }
-
-    ::-webkit-input-placeholder { /* WebKit browsers */
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
 `
 
 export const SubmitButton = styled.button`

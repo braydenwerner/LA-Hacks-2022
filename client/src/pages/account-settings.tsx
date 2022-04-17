@@ -20,13 +20,12 @@ const AccountSettingsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Account Settings - DailyTechSupply</title>
+        <title>Account Settings - Favor</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {userData && (
         <div>
-          <Navbar />
           <div>Account settings</div>
           <div>{userData.email}</div>
           <div>{userData.first_name}</div>
