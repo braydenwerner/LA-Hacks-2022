@@ -148,7 +148,7 @@ export const Navbar: React.FC = () => {
               fontWeight={600}
               onClick={() => {
                 setMenuOpen(false)
-                setModalOpenMode('SignUp')
+                router.push('/signup')
               }}
             >
               Sign Up
@@ -157,18 +157,13 @@ export const Navbar: React.FC = () => {
               fontWeight={400}
               onClick={() => {
                 setMenuOpen(false)
-                setModalOpenMode('SignIn')
+                router.push('/login')
               }}
             >
               Log In
             </Styled.MenuButton>
           </Styled.Menu>
         ))}
-      {modalOpenMode === 'SignIn' && (
-        <SpringModal title="Log In" onClose={() => setModalOpenMode(null)}>
-          <SignIn onSuccess={() => setModalOpenMode(null)} />
-        </SpringModal>
-      )}
       {modalOpenMode === 'SignUp' && (
         <SpringModal title="Sign Up" onClose={() => setModalOpenMode(null)}>
           <SignUp onSuccess={() => setModalOpenMode(null)} />
