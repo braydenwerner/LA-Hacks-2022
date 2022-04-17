@@ -46,6 +46,12 @@ export const Description = styled.div`
     font-weight: 700;
     font-size: 14px;
     margin-top: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4 
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
 `
 
 export const Name = styled.div`
