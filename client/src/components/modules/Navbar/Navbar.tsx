@@ -11,12 +11,13 @@ import { SpringModal } from '../../elements'
 interface NavbarProps {
   title: string,
   titleColor: string,
+  hasLink?: boolean,
   link: string,
   backButton: boolean,
-  settingsButton: boolean
+  settingsButton: boolean,
 }
 
-export const Navbar: React.FC<NavbarProps> = ({title, titleColor, link, backButton, settingsButton}) => {
+export const Navbar: React.FC<NavbarProps> = ({title, titleColor, link, hasLink, backButton, settingsButton}) => {
   const { userData } = useContext(TokenContext)
 
   const router = useRouter()
@@ -32,8 +33,8 @@ export const Navbar: React.FC<NavbarProps> = ({title, titleColor, link, backButt
             height={40}
             /> 
         </Styled.ImgWrapper>
-        {backButton ? (
-          <div style={{marginTop: '40px', minWidth: '60px'}}> {title} </div>
+        {(backButton || !hasLink) ? (
+          <div style={{marginTop: '40px', minWidth: '60px', color: titleColor}}> {title} </div>
         ) : 
           <div style={{marginTop: '40px', minWidth: '60px'}} onClick={() => router.push(link)}>{title}</div>
         }

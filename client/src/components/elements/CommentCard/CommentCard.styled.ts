@@ -6,7 +6,7 @@ export const Card = styled.div`
     border-radius: 15px;
     width: 340px;
     padding: 19px;
-    margin: 5px 0 0 0;
+    margin: 8px 0 0 0;
     font-family: 'Mulish';
     font-style: normal; 
 
