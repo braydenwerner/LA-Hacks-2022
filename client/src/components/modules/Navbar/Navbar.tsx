@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <Styled.NavContainer>
-          <div onClick={() => router.push('/')}>Favor</div>
+        <div onClick={() => router.push('/')}>Favor</div>
       </Styled.NavContainer>
       <Styled.SpaceDiv />
     </>

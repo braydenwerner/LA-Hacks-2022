@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
-import { User } from '../../../generated/graphql'
+import { useContext, useEffect, useState } from 'react'
+import { useGetUsersQuery, User } from '../../../generated/graphql'
 import { BottomNav } from '../BottomNav/BottomNav'
 import Image from 'next/image'
 import * as Styled from './UserProfile.styled'
+import { TokenContext } from '../../../providers'
+import { auth } from '../../../config/config'
+import router, { useRouter } from 'next/router'
 
 interface UserProfileProps {
   user: User
@@ -11,7 +14,10 @@ interface UserProfileProps {
 export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
   const [selectMode, setSelectMode] = useState('favors')
 
-  useEffect(() => {}, [])
+  const { data } = useGetUsersQuery()
+  const usersData = data && data.getUsers
+
+  const { userData } = useContext(TokenContext)
 
   return (
     <Styled.ProfileContainer>
@@ -31,7 +37,36 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
         </Styled.SelectorText>
       </Styled.Selector>
 
-      {selectMode === 'favors' ? <div>favors</div> : <div>friends</div>}
+      {selectMode === 'favors' ? (
+        <div>favors</div>
+      ) : (
+        <div>
+          {usersData &&
+            usersData.map(
+              (user, i) =>
+                userData &&
+                userData.uid !== user.uid && (
+                  <div key={i}>{user.first_name + ' ' + user.last_name}</div>
+                )
+            )}
+        </div>
+      )}
+
+      <div
+        onClick={async () => {
+          console.log('trying to sign out')
+          await auth.signOut().catch((err) => {
+            console.log(err)
+          })
+
+          if (typeof window !== 'undefined') {
+            localStorage.removeItem('token')
+            window.location.reload()
+          }
+        }}
+      >
+        Sign out?
+      </div>
     </Styled.ProfileContainer>
   )
 }
