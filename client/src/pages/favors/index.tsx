@@ -40,7 +40,13 @@ const FavorsPage: NextPage<FavorsListPageProps> = ({ favors, data }) => {
   console.log(data)
   return (
     <>
-      <Navbar title="Favor" titleColor={colorPalette.yellow} link='/favors' backButton={false} settingsButton={false} /> 
+      <Navbar
+        title="Favor"
+        titleColor={colorPalette.yellow}
+        link="/favors"
+        backButton={false}
+        settingsButton={false}
+      />
       <FavorsList favorsData={favors} />
       <FavorSearch input={data} />
       <BottomNav />
