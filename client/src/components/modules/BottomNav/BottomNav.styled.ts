@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colorPalette } from '../../../constants/constants'
 
 export const NavContainer = styled.div`
   display: flex;
@@ -10,8 +11,8 @@ export const NavContainer = styled.div`
   left: 0;
   margin: 0;
   padding: 0;
-  height: 40px;
-  background-color: #2a9d8f;
+  height: 60px;
+  background-color: #264653;
 `
 
 export const HomeIconContainer = styled.div`
